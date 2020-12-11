@@ -178,19 +178,19 @@ public class gestion_combat : MonoBehaviour
             switch (random)
             {
                 case 1:
-                    b.transform.position = new Vector3(-2.5f, Random.Range(-2.5f,5.5f), 1);
+                    b.transform.position = new Vector3(-2.5f, Random.Range(-2.5f,5.5f), 0);
                     dir = Vector3.right;
                     break;
                 case 2:
-                    b.transform.position = new Vector3(2.5f, Random.Range(-2.5f, 5.5f), 1);
+                    b.transform.position = new Vector3(2.5f, Random.Range(-2.5f, 5.5f), 0);
                     dir = Vector3.left;
                     break;
                 case 3:
-                    b.transform.position = new Vector3(Random.Range(-2.5f, 5.5f), -2.5f, 1);
+                    b.transform.position = new Vector3(Random.Range(-2.5f, 5.5f), -2.5f, 0);
                     dir = Vector3.up;
                     break;
                 case 4:
-                    b.transform.position = new Vector3(Random.Range(-2.5f, 5.5f), 2.5f, 1);
+                    b.transform.position = new Vector3(Random.Range(-2.5f, 5.5f), 2.5f, 0);
                     dir = Vector3.down;
                     break;
             }
