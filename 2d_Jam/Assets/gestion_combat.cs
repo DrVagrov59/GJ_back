@@ -1,20 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gestion_combat : MonoBehaviour
 {
-    public static int enemie_tag = 42;
+
+    public static int enemie_tag = 0;
     public GameObject bullet;
     public GameObject bullet_hold;
 
     public GameObject Player;
     public int bullet_speed=50;
 
+    [Header("Choix_Vague_ennemie")]
+
+    public List<int> Enne_tag_0;
+    public List<int> Enne_tag_1;
+    public List<int> Enne_tag_2;
+    public List<int> Enne_tag_3;
+
+    public int Ennemie_live=3;
+    public Text ennemie_life;
+
     public static float BS=0;
     public int conter_down = 10;
     public float conter_restart=15;
     public int random_pick=0;
+    private List<int> rd_;
+
     public bool Fire_engage = false;
     public bool Fire_switch = false;
 
@@ -48,6 +62,28 @@ public class gestion_combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ennemie_life.text = "Ennemie: "+Ennemie_live.ToString();
+        if(Ennemie_live==0)
+        {
+            player_move.Combat = false;
+            Ennemie_live = 3;
+        }
+        if (enemie_tag==0)
+        {
+            rd_ =Enne_tag_0;
+        }
+        if (enemie_tag == 1)
+        {
+            rd_ = Enne_tag_1;
+        }
+        if (enemie_tag == 2)
+        {
+            rd_ = Enne_tag_2;
+        }
+        if (enemie_tag == 3)
+        {
+            rd_ = Enne_tag_3;
+        }
         speed_respawn_laser_static = speed_respawn_laser;
         BS = bullet_speed;
         if(conter_down<=0)
@@ -57,6 +93,20 @@ public class gestion_combat : MonoBehaviour
         }
         if(Fire_switch)
         {
+            if(Fire_engage)
+            {
+                if(random_pick+1<rd_.Count)
+                    random_pick++;
+                else
+                {
+                    random_pick = 0;
+                }
+            }
+            else
+            {
+                Ennemie_live--;
+            }
+
             Fire_engage = !Fire_engage;
             Fire_switch = false;
             conter_norm_wave = speed_respawn;
@@ -88,7 +138,7 @@ public class gestion_combat : MonoBehaviour
 
         // random_pick = (int)Random.Range(0f,1.9f);
        
-        switch(random_pick)
+        switch(rd_[random_pick])
         {
             case 0:
                 Fire_normal_bullet(speed_respawn);

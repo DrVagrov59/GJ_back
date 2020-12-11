@@ -6,10 +6,10 @@ public class player_move : MonoBehaviour
 {
 
     public Vector3 pos_pres;
-   // public GameObject Combat_Zone;
+    public GameObject Combat_Zone;
 
     public float speed;
-    public bool Combat=false;
+    public static bool Combat=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +22,13 @@ public class player_move : MonoBehaviour
         if (!Combat)
         {
             player_move_();
-            //Combat_Zone.SetActive(false);
+            Combat_Zone.SetActive(false);
+            gameObject.GetComponent<Collider2D>().enabled = true;
         }
         else
         {
-           // Combat_Zone.SetActive(true);
+            Combat_Zone.SetActive(true);
+            gameObject.GetComponent<Collider2D>().enabled = false;
         }
 
        
@@ -70,9 +72,25 @@ public class player_move : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="Ennemie")
+        if(collision.gameObject.tag=="Ennemie_0")
         {
             Combat = true;
+            gestion_combat.enemie_tag = 0;
+        }
+        if (collision.gameObject.tag == "Ennemie_1")
+        {
+            Combat = true;
+            gestion_combat.enemie_tag = 1;
+        }
+        if (collision.gameObject.tag == "Ennemie_2")
+        {
+            Combat = true;
+            gestion_combat.enemie_tag = 3;
+        }
+        if (collision.gameObject.tag == "Ennemie_3")
+        {
+            Combat = true;
+            gestion_combat.enemie_tag = 3;
         }
     }
     static bool check_pres(Vector3 pos,Vector3 dir)

@@ -17,7 +17,7 @@ public class player_battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lif_holder.text = Life.ToString();
+        lif_holder.text = "Player: "+Life.ToString();
     }
     private void FixedUpdate()
     {
@@ -40,7 +40,7 @@ public class player_battle : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet"||collision.gameObject.tag=="Laser")
         {
             Life--;
             Destroy(collision.gameObject);

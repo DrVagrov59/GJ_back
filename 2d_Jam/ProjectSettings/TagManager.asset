@@ -4,9 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ennemie
   - no_Walkable
   - Bullet
+  - Laser
+  - Ennemie_0
+  - Ennemie_1
+  - Ennemie_2
+  - Ennemie_3
   layers:
   - Default
   - TransparentFX
