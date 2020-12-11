@@ -11,6 +11,7 @@ TagManager:
   - Ennemie_1
   - Ennemie_2
   - Ennemie_3
+  - END
   layers:
   - Default
   - TransparentFX

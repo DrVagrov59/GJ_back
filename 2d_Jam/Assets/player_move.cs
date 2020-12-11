@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_move : MonoBehaviour
 {
@@ -72,7 +73,7 @@ public class player_move : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="Ennemie_0")
+        if (collision.gameObject.tag == "Ennemie_0")
         {
             Combat = true;
             gestion_combat.enemie_tag = 0;
@@ -96,6 +97,10 @@ public class player_move : MonoBehaviour
             Combat = true;
             gestion_combat.enemie_tag = 3;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "END")
+        {
+            SceneManager.LoadScene(0);
         }
     }
     static bool check_pres(Vector3 pos,Vector3 dir)
