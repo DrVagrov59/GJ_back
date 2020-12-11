@@ -76,21 +76,26 @@ public class player_move : MonoBehaviour
         {
             Combat = true;
             gestion_combat.enemie_tag = 0;
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Ennemie_1")
         {
             Combat = true;
             gestion_combat.enemie_tag = 1;
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Ennemie_2")
         {
             Combat = true;
             gestion_combat.enemie_tag = 3;
+            Destroy(collision.gameObject);
         }
+
         if (collision.gameObject.tag == "Ennemie_3")
         {
             Combat = true;
             gestion_combat.enemie_tag = 3;
+            Destroy(collision.gameObject);
         }
     }
     static bool check_pres(Vector3 pos,Vector3 dir)

@@ -20,7 +20,7 @@ public class gestion_combat : MonoBehaviour
     public List<int> Enne_tag_2;
     public List<int> Enne_tag_3;
 
-    public int Ennemie_live=3;
+    public static int Ennemie_live=3;
     public Text ennemie_life;
 
     public static float BS=0;
@@ -62,8 +62,16 @@ public class gestion_combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ennemie_life.text = "Ennemie: "+Ennemie_live.ToString();
-        if(Ennemie_live==0)
+        if (player_move.Combat)
+        {
+            ennemie_life.text = "Ennemie: " + Ennemie_live.ToString();
+        }
+        else
+        {
+            ennemie_life.text = "";
+        }
+        
+        if(Ennemie_live==-1)
         {
             player_move.Combat = false;
             Ennemie_live = 3;
