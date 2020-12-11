@@ -1003,8 +1003,15 @@ MonoBehaviour:
   Fire_switch: 0
   norm_wave: 0
   speed_respawn: 30
+  prev_laser: {fileID: 1158379416719822642, guid: 53e6e447aabb53b45bea6054a229af81, type: 3}
+  Lazer: {fileID: 1158379416719822642, guid: 9f5267f46560a4648a7b86845f78af10, type: 3}
   laser_wave: 0
-  speed_respawn_laser: 50
+  conter_laser_wave: -1
+  speed_respawn_laser: 75
+  prevl_laser: 0
+  _laser_random: 2
+  random_x: 0
+  random_y: 0
 --- !u!212 &1563153104
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class gestion_combat : MonoBehaviour
     public static int enemie_tag = 42;
     public GameObject bullet;
     public GameObject bullet_hold;
+
     public GameObject Player;
     public int bullet_speed=50;
 
@@ -24,9 +25,16 @@ public class gestion_combat : MonoBehaviour
     public int speed_respawn = 20;
 
     [Header("Wave_2")]
+    public GameObject prev_laser;
+    public GameObject Lazer;
     public bool laser_wave = false;
-    private int conter_laser_wave = -1;
+    public int conter_laser_wave = -1;
     public int speed_respawn_laser=50;
+    public static int speed_respawn_laser_static = 0;
+    public bool prevl_laser=false;
+    public int _laser_random = 1;
+    public float random_x = 0;
+    public float random_y = 0;
 
     Vector3 dir = Vector3.zero;
 
@@ -40,6 +48,7 @@ public class gestion_combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed_respawn_laser_static = speed_respawn_laser;
         BS = bullet_speed;
         if(conter_down<=0)
         {
@@ -52,10 +61,11 @@ public class gestion_combat : MonoBehaviour
             Fire_switch = false;
             conter_norm_wave = speed_respawn;
             conter_laser_wave = speed_respawn_laser;
+            prevl_laser = true;
         }
         if(Fire_engage)
         {
-            random_pick = 0;
+            
             
             Fire();
         }
@@ -134,10 +144,54 @@ public class gestion_combat : MonoBehaviour
     }
     void Fire_Laser_wave(int duration)
     {
+
         laser_wave = true;
-        if(conter_laser_wave==0)
+        if (prevl_laser)
         {
+            _laser_random = rnd.Next(0,3);
+            random_x = Random.Range(-2, 2);
+            random_y = Random.Range(-2, 2);
+            prevl_laser = false;
+            
+                
+                
+            
+        }
+        if(conter_laser_wave==30)
+        {
+            if (_laser_random == 1)
+            {
+
+                GameObject c = Instantiate(prev_laser);
+                c.transform.rotation = Quaternion.Euler(0f, 0, 90);
+                c.transform.position = new Vector3(0, random_y, 0);
+            }
+            else
+            {
+                GameObject g = Instantiate(prev_laser);
+                g.transform.Rotate(0f, 0, 0f);
+                g.transform.position = new Vector3(random_x, 0, 0);
+            }
+        }
+        
+        if (conter_laser_wave == 0)
+        {
+                if(_laser_random==1)
+                {
+                    GameObject b = Instantiate(Lazer);
+                    b.transform.rotation = Quaternion.Euler(0, 0, 90);
+                    b.transform.position = new Vector3(0, random_y, 0);
+                }
+                else
+                {
+                    GameObject f = Instantiate(Lazer, Vector3.zero, Quaternion.Euler(0, 0, 0), transform);
+                    f.transform.position = new Vector3(random_x, 0, 0);
+                }
+
+                prevl_laser = true;
+                conter_laser_wave = speed_respawn_laser;
 
         }
+        
     }
 }

@@ -5,10 +5,14 @@ using UnityEngine;
 public class Laser_code : MonoBehaviour
 {
     public float time_destruct = 3;
+    public float SCR;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, time_destruct);
+        SCR = gestion_combat.speed_respawn_laser_static/3;
+        SCR /= 60;
+        Debug.Log(SCR);
+        Destroy(gameObject, SCR);
     }
 
     // Update is called once per frame
