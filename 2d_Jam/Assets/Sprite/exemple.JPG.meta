@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:2d_Jam/Assets/Sprite/Assets/exemple.JPG.meta
-guid: 2a0f0b9fda1f6074a8b3c89373e8a35b
-=======
-guid: 85a997c0068b73f45a0dba422efd8ef6
->>>>>>> e95e7ac83d7dd49428de5794dadb30f740794715:2d_Jam/Assets/Sprite/PSD-PNG/Png/Exit.png.meta
+guid: 2553839032d0e9c4c8aa42221e6fbe7a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,19 +66,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0

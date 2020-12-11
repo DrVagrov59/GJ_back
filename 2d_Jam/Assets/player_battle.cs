@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class player_battle : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class player_battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Life==0)
+        {
+            SceneManager.LoadScene(0);
+        }
         if (player_move.Combat)
         {
             lif_holder.text = "Player: " + Life.ToString();
