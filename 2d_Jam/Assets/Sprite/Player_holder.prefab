@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dcff67adb52494b8623b0012156148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos_objectif: {fileID: 0}
   pos_pres: {x: 0, y: 0, z: 0}
+  Combat_Zone: {fileID: 0}
   speed: 0
 --- !u!1 &8570171791170549588
 GameObject:
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4323405316614970885}
   m_Layer: 0
   m_Name: Player_holder
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

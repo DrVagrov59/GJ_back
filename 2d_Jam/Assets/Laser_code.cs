@@ -11,7 +11,7 @@ public class Laser_code : MonoBehaviour
     {
         SCR = gestion_combat.speed_respawn_laser_static/3;
         SCR /= 60;
-        Debug.Log(SCR);
+
         Destroy(gameObject, SCR);
     }
 

@@ -17,10 +17,19 @@ public class player_battle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lif_holder.text = "Player: "+Life.ToString();
+        if (player_move.Combat)
+        {
+            lif_holder.text = "Player: " + Life.ToString();
+        }
+        else
+        {
+            lif_holder.text = "";
+        }
+        
     }
     private void FixedUpdate()
     {
+        
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position+=new Vector3(-speed*Time.deltaTime,0,0);
