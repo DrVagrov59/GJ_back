@@ -55,7 +55,7 @@ public class gestion_combat : MonoBehaviour
         }
         if(Fire_engage)
         {
-            random_pick = 1;
+            random_pick = 0;
             
             Fire();
         }
